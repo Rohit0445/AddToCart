@@ -24,3 +24,27 @@ def landing(req):
         return render(req, 'landing.html', {'form': form})
 
     return render(req,'landing.html',{'items': items})
+
+
+def addtocart(req,pk):
+    cart = req.session.get('cart',[])
+    
+    x=cart.append(pk)
+    # print(cart)
+    req.session['cart']=x
+    form = ItemForm()
+    items = Item.objects.all()
+    return render(req,'landing.html',{'items': items})
+
+def cart(req):
+    cart = req.session.get('cart',[])
+    print(cart)
+
+    
+    
+
+
+    
+    
+    
+

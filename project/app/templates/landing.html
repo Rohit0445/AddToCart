@@ -17,20 +17,24 @@
   </head>
   <body>
     <h1>Hello, world!</h1>
+    <a href="{% url 'cart' %}">Cart</a>
+
 
     {% if items %}
     {% for item in items %}
 
     <div class="card" style="width: 18rem; ">
-      <img src="{{ item.itemImage.url }}" class="card-img-top" alt="{{ item.itemImage }}">
+      <img src="{{ item.itemImage.url }}" class="card-img-top" alt="">
         <div class="card-body">
            <h5 class="card-title">{{ item.itemname }}</h5>
            <h5 class="card-title">{{ item.itemPrice }}</h5>
            
            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-           <a href="#" class="btn btn-primary">Add To Cart</a>
+           <a href="{% url 'addtocart' pk=item.id %}" class="btn btn-primary">Add To Cart</a>
         </div>
     </div>
+
+    
       
 
     

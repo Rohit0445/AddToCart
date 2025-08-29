@@ -20,5 +20,7 @@ from app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.landing,name='landing')
+    path('',views.landing,name='landing'),
+    path('addtocart/<int:pk>/',views.addtocart,name='addtocart'),
+    path('cart/',views.cart,name='cart')
 ]
