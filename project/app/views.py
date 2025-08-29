@@ -11,6 +11,7 @@ from .models import Item
 def landing(req):
 
     items = Item.objects.all()
+   
 
     if req.method == 'POST':
         form = ItemForm(req.POST, req.FILES)  # include request.FILES for image
