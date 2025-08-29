@@ -18,6 +18,26 @@
   <body>
     <h1>Hello, world!</h1>
 
+    {% if items %}
+    {% for item in items %}
+
+    <div class="card" style="width: 18rem; ">
+      <img src="{{ item.itemImage }}" class="card-img-top" alt="{{ item.itemname }}">
+        <div class="card-body">
+           <h5 class="card-title">{{ item.itemname }}</h5>
+           <h5 class="card-title">{{ item.itemPrice }}</h5>
+           
+           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+           <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+      
+
+    
+    {% endfor %}
+    {% endif %}
+    
+
     <form method="POST" enctype="multipart/form-data">
       {% csrf_token %} 
       

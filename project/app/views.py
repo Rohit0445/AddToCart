@@ -1,6 +1,7 @@
 
 from django.shortcuts import render, redirect
 from .forms import ItemForm
+from .models import Item
 
 # Create your views here.
 
@@ -8,6 +9,9 @@ from .forms import ItemForm
    
 
 def landing(req):
+
+    items = Item.objects.all()
+
     if req.method == 'POST':
         form = ItemForm(req.POST, req.FILES)  # include request.FILES for image
         if form.is_valid():
@@ -18,4 +22,4 @@ def landing(req):
     
         return render(req, 'landing.html', {'form': form})
 
-    return render(req,'landing.html')
+    return render(req,'landing.html',{'items': items})
